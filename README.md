@@ -14,6 +14,7 @@ sudo alien -i <path-to>/oracle-instantclient12.1-sqlplus-12.1.0.2.0-1.x86_64.rpm
 export LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
 export ORACLE_HOME=/usr/lib/oracle/12.1/client64
 export PATH=$PATH:$ORACLE_HOME/bin
+export NLS_LANG=AMERICAN_CIS.UTF8
 #после чего перезапускаем систему
 
 #4. Устанавливаем необходимую библиотеку и переносим файл в нужную папку:
