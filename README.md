@@ -8,9 +8,9 @@ sudo apt update
 sudo apt install alien
 
 #2. Скачиваем лежащие в репозитории файлы и преобразовываем их формат:
-sudo alien -i <path-to>/oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm
-sudo alien -i <path-to>/oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm
-sudo alien -i <path-to>/oracle-instantclient12.1-sqlplus-12.1.0.2.0-1.x86_64.rpm
+sudo alien -i <path-to>/oracle-instantclient-basic-23.9.0.25.07-1.el8.x86_64.rpm
+sudo alien -i <path-to>/oracle-instantclient-devel-23.9.0.25.07-1.el8.x86_64.rpm
+sudo alien -i <path-to>/oracle-instantclient-sqlplus-23.9.0.25.07-1.el8.x86_64.rpm
 
 #3. В конец файла ~/.bashrc добавляем строки:
 export LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
