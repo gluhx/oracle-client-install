@@ -13,8 +13,8 @@ sudo alien -i <path-to>/oracle-instantclient-devel-23.9.0.25.07-1.el8.x86_64.rpm
 sudo alien -i <path-to>/oracle-instantclient-sqlplus-23.9.0.25.07-1.el8.x86_64.rpm
 
 #3. В конец файла ~/.bashrc добавляем строки:
-export LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
-export ORACLE_HOME=/usr/lib/oracle/12.1/client64
+export LD_LIBRARY_PATH=/usr/lib/oracle/23/client64/lib/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+export ORACLE_HOME=/usr/lib/oracle/23/client64
 export PATH=$PATH:$ORACLE_HOME/bin
 export NLS_LANG=AMERICAN_CIS.UTF8
 #после чего перезапускаем систему
@@ -33,23 +33,19 @@ sqlplus <username>/<password>@//<dbhost>:1521/<SID>
 #Установка Oracle Client на Fedora 42#
 ######################################
 
-#1. Устанавливаем программу для преобразования форматов различных систем управления пакетами Linux:
-sudo dnf update
-sudo dnf install alien
+#1. Скачиваем лежащие в репозитории файлы и преобразовываем их формат:
+sudo dnf install <path-to>/oracle-instantclient-basic-23.9.0.25.07-1.el8.x86_64.rpm
+sudo dnf install <path-to>/oracle-instantclient-devel-23.9.0.25.07-1.el8.x86_64.rpm
+sudo dnf install <path-to>/oracle-instantclient-sqlplus-23.9.0.25.07-1.el8.x86_64.rpm
 
-#2. Скачиваем лежащие в репозитории файлы и преобразовываем их формат:
-sudo alien -i <path-to>/oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm
-sudo alien -i <path-to>/oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm
-sudo alien -i <path-to>/oracle-instantclient12.1-sqlplus-12.1.0.2.0-1.x86_64.rpm
-
-#3. В конец файла ~/.bashrc добавляем строки:
-export LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
-export ORACLE_HOME=/usr/lib/oracle/12.1/client64
+#2. В конец файла ~/.bashrc добавляем строки:
+export LD_LIBRARY_PATH=/usr/lib/oracle/23/client64/lib/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+export ORACLE_HOME=/usr/lib/oracle/23/client64
 export PATH=$PATH:$ORACLE_HOME/bin
 export NLS_LANG=AMERICAN_CIS.UTF8
 #после чего перезапускаем систему
 
-4. Устанавливаем необходимую библиотеку и переносим файл в нужную папку (если ОНА НЕ УСТАНОВИЛАСЬ АВТОМАТИЧЕСКИ):
+#4. Устанавливаем необходимую библиотеку и переносим файл в нужную папку (если ОНА НЕ УСТАНОВИЛАСЬ АВТОМАТИЧЕСКИ):
 sudo dnf update
 sudo dnf install libaio libnsl
 sudo cp /lib64/libaio.so.1 /lib64/libnsl.so.1 $ORACLE_HOME/lib
