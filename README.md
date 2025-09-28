@@ -49,7 +49,7 @@ export NLS_LANG=AMERICAN_CIS.UTF8
 sudo dnf update
 sudo dnf install libaio libnsl
 sudo cp /lib64/libaio.so.1 /lib64/libnsl.so.1 $ORACLE_HOME/lib
-sudo mv $ORACLE_HOME/lib/libaio.so.1t64 $ORACLE_HOME/lib/libaio.so.1
+sudo mv $ORACLE_HOME/lib/libaio.so.1 $ORACLE_HOME/lib/libaio.so.1
 
 #4. Далее проверяем подключение к БД(она должна быть запущена):
 sqlplus <username>/<password>@//<dbhost>:1521/<SID>
